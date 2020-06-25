@@ -1,0 +1,72 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/davidgonzalez/Documents/personal_code/UniversityApp/UniversityApp.csproj": {}
+  },
+  "projects": {
+    "/Users/davidgonzalez/Documents/personal_code/UniversityApp/UniversityApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/davidgonzalez/Documents/personal_code/UniversityApp/UniversityApp.csproj",
+        "projectName": "UniversityApp",
+        "projectPath": "/Users/davidgonzalez/Documents/personal_code/UniversityApp/UniversityApp.csproj",
+        "packagesPath": "/Users/davidgonzalez/.nuget/packages/",
+        "outputPath": "/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/davidgonzalez/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
