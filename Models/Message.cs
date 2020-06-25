@@ -8,9 +8,6 @@ namespace UniversityApp.Models
         [Key]
         public int MessageId { get; set; }
         public string MessageContent { get; set; }
-
-        [ForeignKey("User")]
-        public int User_Id { get; set; }
         public User User { get; set; }
 
         [ForeignKey("Post")]

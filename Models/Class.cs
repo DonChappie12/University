@@ -9,9 +9,6 @@ namespace UniversityApp.Models
         [Key]
         public int ClassId { get; set; }
         public string ClassName { get; set; }
-        
-        [ForeignKey("User")]
-        public int User_Id { get; set; }
         public User User { get; set; }
         public List<Attendant> Attendant { get; set; }
         public Class()

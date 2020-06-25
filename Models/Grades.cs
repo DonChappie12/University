@@ -8,9 +8,6 @@ namespace UniversityApp.Models
         [Key]
         public int GradeId { get; set; }
         public double Grade { get; set; }
-        
-        [ForeignKey("User")]
-        public int User_Id { get; set; }
         public User User { get; set; }
     }
 }

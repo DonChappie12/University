@@ -13,9 +13,13 @@ namespace UniversityApp.Controllers
     public class HomeController : Controller
     {
         private UserContext _context;
-        public HomeController(UserContext context)
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
+        public HomeController(UserContext context,UserManager<User> userManager,SignInManager<User> signInManager)
         {
             _context = context;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
         public IActionResult Index()
         {
@@ -29,35 +33,17 @@ namespace UniversityApp.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Registrate(ValidateUser user)
+        public async Task<IActionResult> Registrate(ValidateUser user)
         {
             if(ModelState.IsValid)
             {
-                PasswordHasher<ValidateUser> Hasher = new PasswordHasher<ValidateUser>();
-                user.Password = Hasher.HashPassword(user, user.Password);
-                User newUser = new User
-                {
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    Email = user.Email,
-                    Password = user.Password
-                };
+                User newUser = new User { UserName = user.Email, Email = user.Email};
 
-                _context.Add(newUser);
-                _context.SaveChanges();
-
-                User findUser = _context.User.Find(newUser.UserId);
-                if(findUser.UserId == 1)
+                IdentityResult result = await _userManager.CreateAsync(newUser, user.Password);
+                if(result.Succeeded)
                 {
-                    findUser.Role = "admin";
+                    await _signInManager.SignInAsync(newUser, isPersistent: false);
                 }
-                else
-                {
-                    findUser.Role = "student";
-                }
-                _context.SaveChanges();
-
-                HttpContext.Session.SetInt32("user_id",findUser.UserId);
                 return RedirectToAction("Index");
             }
             else
@@ -72,22 +58,22 @@ namespace UniversityApp.Controllers
             return View();
         }
 
-        [HttpPost("login")]
-        public IActionResult LoginIn(string Email, string Password)
-        {
-            var user = _context.User.Where(u=> u.Email == Email).FirstOrDefault();
-            if(user != null && Password != null)
-            {
-                var Hasher = new PasswordHasher<User>();
-                if(0 != Hasher.VerifyHashedPassword(user, user.Password, Password))
-                {
-                    HttpContext.Session.SetInt32("user_id", user.UserId);
-                    return RedirectToAction("About");
-                }
-            }
-            ViewBag.error="Email and/or Password dont match";
-            return View("Login");
-        }
+        // [HttpPost("login")]
+        // public IActionResult LoginIn(string Email, string Password)
+        // {
+        //     var user = _context.User.Where(u=> u.Email == Email).FirstOrDefault();
+        //     if(user != null && Password != null)
+        //     {
+        //         var Hasher = new PasswordHasher<User>();
+        //         if(0 != Hasher.VerifyHashedPassword(user, user.Password, Password))
+        //         {
+        //             HttpContext.Session.SetInt32("user_id", user.UserId);
+        //             return RedirectToAction("About");
+        //         }
+        //     }
+        //     ViewBag.error="Email and/or Password dont match";
+        //     return View("Login");
+        // }
 
         public IActionResult About()
         {
