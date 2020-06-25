@@ -66,6 +66,28 @@ namespace UniversityApp.Controllers
             }
         }
 
+        [Route("login")]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost("login")]
+        public IActionResult LoginIn(string Email, string Password)
+        {
+            var user = _context.User.Where(u=> u.Email == Email).FirstOrDefault();
+            if(user != null && Password != null)
+            {
+                var Hasher = new PasswordHasher<User>();
+                if(0 != Hasher.VerifyHashedPassword(user, user.Password, Password))
+                {
+                    HttpContext.Session.SetInt32("user_id", user.UserId);
+                    return RedirectToAction("About");
+                }
+            }
+            ViewBag.error="Email and/or Password dont match";
+            return View("Login");
+        }
 
         public IActionResult About()
         {

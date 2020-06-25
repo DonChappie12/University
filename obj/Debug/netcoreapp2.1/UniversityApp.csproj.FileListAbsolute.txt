@@ -31,3 +31,4 @@
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/UniversityApp.pdb
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/UniversityApp.csproj.CopyComplete
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Home/Registration.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Home/Login.g.cshtml.cs
