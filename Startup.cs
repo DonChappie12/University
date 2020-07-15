@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+// using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,7 +40,7 @@ namespace UniversityApp
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<UserContext>()
                 .AddDefaultTokenProviders();
-            services.AddAuthentication();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -61,6 +63,14 @@ namespace UniversityApp
             app.UseCookiePolicy();
             app.UseSession();
             app.UseAuthentication();
+            // app.UseCookieAuthentication(new CookieAuthenticationOptions()
+            // {
+            // AuthenticationScheme = "Cookies",
+            //     LoginPath = new PathString(""),
+            //     AccessDeniedPath = new PathString(""),
+            //     AutomaticAuthenticate = true,
+            //     AutomaticChallenge = true,
+            // });
 
             app.UseMvc(routes =>
             {

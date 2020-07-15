@@ -26,32 +26,6 @@ namespace UniversityApp.Controllers
             return View();
         }
 
-        [Route("registration")]
-        public IActionResult Registration()
-        {
-            return View();
-        }
-
-        [HttpPost("register")]
-        public async Task<IActionResult> Registrate(ValidateUser user)
-        {
-            if(ModelState.IsValid)
-            {
-                User newUser = new User { UserName = user.Email, Email = user.Email};
-
-                IdentityResult result = await _userManager.CreateAsync(newUser, user.Password);
-                if(result.Succeeded)
-                {
-                    await _signInManager.SignInAsync(newUser, isPersistent: false);
-                }
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return View("Registration");
-            }
-        }
-
         [Route("login")]
         public IActionResult Login()
         {

@@ -1,7 +1,7 @@
 @model UniversityApp.Models.ValidateUser
 
 <div>
-    <form asp-action="Registrate" asp-controller="Home" method="post">
+    <form asp-action="Registrate" asp-controller="Account" method="post">
         <span asp-validation-for="FirstName"></span>
         <p>First Name <input asp-for="FirstName"></p>
     
@@ -17,7 +17,7 @@
         <span asp-validation-for="ConfirmPassword"></span>
         <p>Confirm Password <input asp-for="ConfirmPassword"></p>
 
-        <input type="submit" value="Register">
-        <!-- <button type="button" class="btn btn-primary">Register</button> -->
+        <!-- <input type="submit" value="Register"> -->
+        <button type="submit" class="btn btn-primary">Register</button>
     </form>
 </div>
