@@ -8,6 +8,6 @@ namespace UniversityApp.Models
         [Key]
         public int GradeId { get; set; }
         public double Grade { get; set; }
-        public User User { get; set; }
+        public virtual User User { get; set; }
     }
 }

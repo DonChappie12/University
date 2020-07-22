@@ -4,15 +4,15 @@ namespace UniversityApp.Models
 {
     public class ValidateUser
     {
-        [Required(ErrorMessage="Must provide First Name")]
-        [MinLength(2, ErrorMessage="First Name must be at least 2 characters long")]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage="First Name must be valid")]
-        public string FirstName { get ; set; }
+        // [Required(ErrorMessage="Must provide First Name")]
+        // [MinLength(2, ErrorMessage="First Name must be at least 2 characters long")]
+        // [RegularExpression("^[a-zA-Z]+$", ErrorMessage="First Name must be valid")]
+        // public string FirstName { get ; set; }
 
-        [Required(ErrorMessage="Must provide Last Name")]
-        [MinLength(2, ErrorMessage="Last Name must be at least 2 characters long")]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage="Last Name must be valid")]
-        public string LastName { get ; set; }
+        // [Required(ErrorMessage="Must provide Last Name")]
+        // [MinLength(2, ErrorMessage="Last Name must be at least 2 characters long")]
+        // [RegularExpression("^[a-zA-Z]+$", ErrorMessage="Last Name must be valid")]
+        // public string LastName { get ; set; }
 
         [Required(ErrorMessage="Must provide Email")]
         [RegularExpression("^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$", ErrorMessage = "Must be a valid email")]

@@ -33,3 +33,7 @@
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Account/Login.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Account/Register.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_LoginPartial.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Home/Admin.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Home/Student.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Home/Teacher.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Account/AccessDenied.g.cshtml.cs

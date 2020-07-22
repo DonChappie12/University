@@ -7,10 +7,10 @@ namespace UniversityApp.Models
     public class Class
     {
         [Key]
-        public int ClassId { get; set; }
-        public string ClassName { get; set; }
-        public User User { get; set; }
-        public List<Attendant> Attendant { get; set; }
+        public virtual int ClassId { get; set; }
+        public virtual string ClassName { get; set; }
+        public virtual User User { get; set; }
+        public virtual List<Attendant> Attendant { get; set; }
         public Class()
         {
             Attendant = new List<Attendant>();

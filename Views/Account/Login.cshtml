@@ -1,9 +1,16 @@
 @using UniversityApp.Models
 @model Login
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
 
 @{
     ViewData["Title"] = "Log in";
 }
+
+<!-- @if (!User.Identity.IsAuthenticated)
+{
+    <h2 class="text-center">You can not access this page because you are <span class="text-danger">not authorized!</span></h2>
+} -->
 
 <h2>@ViewData["Title"]</h2>
 <div class="row">

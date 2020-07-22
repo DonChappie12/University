@@ -9,8 +9,8 @@ namespace UniversityApp.Models
         [Key]
         public int PostId { get; set; }
         public string PostContent { get; set; }
-        public User User { get; set; }
-        public List<Message> Message { get; set; }
+        public virtual User User { get; set; }
+        public virtual List<Message> Message { get; set; }
 
         public Post()
         {

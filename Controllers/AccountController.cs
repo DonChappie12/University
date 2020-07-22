@@ -1,12 +1,14 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using UniversityApp.Models;
 
 namespace UniversityApp.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
         private UserContext _context;
@@ -18,17 +20,22 @@ namespace UniversityApp.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+
+        [AllowAnonymous]
         public IActionResult Register()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Login()
         {
+            // Erases cookie if any cookie is present
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login(Login user)
         {
@@ -49,6 +56,7 @@ namespace UniversityApp.Controllers
             return View(user);
         }
 
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Registrate(ValidateUser user)
         {
@@ -59,6 +67,35 @@ namespace UniversityApp.Controllers
                 IdentityResult result = await _userManager.CreateAsync(newUser, user.Password);
                 if(result.Succeeded)
                 {
+                    // var _admin = await _userManager.FindByEmailAsync("admin@admin.com");
+                    // if (_admin == null)
+                    // {
+                    //     var admin = new User
+                    //     {
+                    //         UserName = "admin@admin.com",
+                    //         Email = "admin@admin.com"
+                    //     };
+
+                    //     var createAdmin = await _userManager.CreateAsync(admin, "Admin2019!");
+                    //     if (createAdmin.Succeeded)
+                    //         await _userManager.AddToRoleAsync(admin, "Admin");
+                    // }
+
+                    // var _teacher = await _userManager.FindByEmailAsync("teacher@teacher.com");
+                    // if (_teacher == null)
+                    // {
+                    //     var teacher = new User
+                    //     {
+                    //         UserName = "teacher@teacher.com",
+                    //         Email = "teacher@teacher.com"
+                    //     };
+
+                    //     var createTeacher = await _userManager.CreateAsync(teacher, "Teacher2019!");
+                    //     if (createTeacher.Succeeded)
+                    //         await _userManager.AddToRoleAsync(teacher, "Teacher");
+                    // }
+                    // This will create a student automatically
+                    await _userManager.AddToRoleAsync(newUser, "Student");
                     await _signInManager.SignInAsync(newUser, isPersistent: false);
                 }
                 return RedirectToAction("Index", "Home");
@@ -69,11 +106,20 @@ namespace UniversityApp.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public IActionResult AccessDenied(string returnUrl)
+        {
+            ViewData["RetrunUrl"] = returnUrl;
+            return View();
         }
     }
 }

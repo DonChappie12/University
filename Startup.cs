@@ -63,7 +63,7 @@ namespace UniversityApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -96,12 +96,56 @@ namespace UniversityApp
             //     AutomaticChallenge = true,
             // });
 
+            CreateRoles(serviceProvider).Wait();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+        private async Task CreateRoles(IServiceProvider serviceProvider)
+        {
+            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var UserManager = serviceProvider.GetRequiredService<UserManager<User>>();
+            string[] roleNames = {"Admin", "Teacher", "Student"};
+
+            foreach(string role in roleNames)
+            {
+                if(!await RoleManager.RoleExistsAsync(role))
+                {
+                    await RoleManager.CreateAsync(new IdentityRole(role));
+                }
+            }
+
+            var _admin = await UserManager.FindByEmailAsync("admin@admin.com");
+            if (_admin == null)
+            {
+                var admin = new User
+                {
+                    UserName = "admin@admin.com",
+                    Email = "admin@admin.com"
+                };
+
+                var createAdmin = await UserManager.CreateAsync(admin, "Admin2019!");
+                if (createAdmin.Succeeded)
+                    await UserManager.AddToRoleAsync(admin, "Admin");
+            }
+
+            var _teacher = await UserManager.FindByEmailAsync("teacher@teacher.com");
+            if (_teacher == null)
+            {
+                var teacher = new User
+                {
+                    UserName = "teacher@teacher.com",
+                    Email = "teacher@teacher.com"
+                };
+
+                var createTeacher = await UserManager.CreateAsync(teacher, "Teacher2019!");
+                if (createTeacher.Succeeded)
+                    await UserManager.AddToRoleAsync(teacher, "Teacher");
+            }
         }
     }
 }
