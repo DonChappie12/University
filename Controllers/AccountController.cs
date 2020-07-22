@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using UniversityApp.Models;
@@ -22,8 +23,9 @@ namespace UniversityApp.Controllers
             return View();
         }
 
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
             return View();
         }
 

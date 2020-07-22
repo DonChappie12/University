@@ -6,6 +6,7 @@ namespace UniversityApp.Models
 {
     public class User : IdentityUser
     {
+        // *** Since using Proxies or lazy loading make sure that they're virtual ***
         public List<Attendant> Attendant { get; set; }
         public List<Class> Class { get; set; }
         public List<Grades> Grade { get; set; }
