@@ -27,7 +27,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- TODO Validate if user is admin, teacher or student that they will be redirected to their dashboard -->
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">UniversityApp</a>
+                @await Html.PartialAsync("_LogoHomePartial")
             </div>
             <div class="navbar-collapse collapse">
                 @await Html.PartialAsync("_NavBarPartial")

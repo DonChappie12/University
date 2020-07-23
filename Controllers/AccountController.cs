@@ -45,7 +45,15 @@ namespace UniversityApp.Controllers
 
                 if(result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    var userEmail = await _userManager.FindByEmailAsync(user.Email);
+                    var roles = await _userManager.GetRolesAsync(userEmail);
+                    
+                    if(roles.Contains("Admin"))
+                        return RedirectToAction("AdminDashboard", "Admin");
+                    else if(roles.Contains("Teacher"))
+                        return RedirectToAction("TeacherDashboard", "Teacher");
+                    else
+                        return RedirectToAction("StudentDashboard", "Student");
                 }
                 else
                 {

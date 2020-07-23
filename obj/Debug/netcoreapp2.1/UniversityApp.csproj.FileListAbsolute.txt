@@ -38,3 +38,7 @@
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Home/Teacher.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Account/AccessDenied.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_NavBarPartial.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Admin/AdminDashboard.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_LogoHomePartial.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Student/StudentDashboard.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Teacher/TeacherDashboard.g.cshtml.cs
