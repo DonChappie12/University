@@ -1,0 +1,31 @@
+@if(User.IsInRole("Admin"))
+{
+    <ul class="nav navbar-nav">
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Create new Student</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Change user Roles</a></li>
+    </ul>
+}
+else if (User.IsInRole("Teacher"))
+{
+    <ul class="nav navbar-nav">
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Create Assignments</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Grade Assignments</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Create a Class</a></li>
+    </ul>
+}
+else if (User.IsInRole("Student"))
+{
+    <ul class="nav navbar-nav">
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Check Assignments</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Check Grade</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Classes</a></li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav">
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+    </ul>
+}

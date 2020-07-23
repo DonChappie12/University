@@ -67,33 +67,6 @@ namespace UniversityApp.Controllers
                 IdentityResult result = await _userManager.CreateAsync(newUser, user.Password);
                 if(result.Succeeded)
                 {
-                    // var _admin = await _userManager.FindByEmailAsync("admin@admin.com");
-                    // if (_admin == null)
-                    // {
-                    //     var admin = new User
-                    //     {
-                    //         UserName = "admin@admin.com",
-                    //         Email = "admin@admin.com"
-                    //     };
-
-                    //     var createAdmin = await _userManager.CreateAsync(admin, "Admin2019!");
-                    //     if (createAdmin.Succeeded)
-                    //         await _userManager.AddToRoleAsync(admin, "Admin");
-                    // }
-
-                    // var _teacher = await _userManager.FindByEmailAsync("teacher@teacher.com");
-                    // if (_teacher == null)
-                    // {
-                    //     var teacher = new User
-                    //     {
-                    //         UserName = "teacher@teacher.com",
-                    //         Email = "teacher@teacher.com"
-                    //     };
-
-                    //     var createTeacher = await _userManager.CreateAsync(teacher, "Teacher2019!");
-                    //     if (createTeacher.Succeeded)
-                    //         await _userManager.AddToRoleAsync(teacher, "Teacher");
-                    // }
                     // This will create a student automatically
                     await _userManager.AddToRoleAsync(newUser, "Student");
                     await _signInManager.SignInAsync(newUser, isPersistent: false);
