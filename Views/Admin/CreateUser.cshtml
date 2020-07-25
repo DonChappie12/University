@@ -1,0 +1,17 @@
+@model UniversityApp.Models.ValidateUser
+
+<div>
+    <h2>Create a new user</h2>
+    <form asp-action="NewUser" asp-controller="Admin" method="POST">
+        <span asp-validation-for="Email"></span>
+        <p>Email <input asp-for="Email"></p>
+    
+        <span asp-validation-for="Password"></span>
+        <p>Password <input asp-for="Password"></p>
+    
+        <span asp-validation-for="ConfirmPassword"></span>
+        <p>Confirm Password <input asp-for="ConfirmPassword"></p>
+
+        <button type="submit" class="btn btn-primary">Create User</button>
+    </form>
+</div>

@@ -1,24 +1,24 @@
 @if(User.IsInRole("Admin"))
 {
     <ul class="nav navbar-nav">
-        <li><a asp-area="" asp-controller="Home" asp-action="Index">Create new Student</a></li>
-        <li><a asp-area="" asp-controller="Home" asp-action="Index">Change user Roles</a></li>
+        <li><a asp-area="" asp-controller="Admin" asp-action="CreateUser">Create new User</a></li>
+        <li><a asp-area="" asp-controller="Admin" asp-action="ChangeRoles">Change user Roles</a></li>
     </ul>
 }
 else if (User.IsInRole("Teacher"))
 {
     <ul class="nav navbar-nav">
-        <li><a asp-area="" asp-controller="Home" asp-action="Index">Create Assignments</a></li>
-        <li><a asp-area="" asp-controller="Home" asp-action="Index">Grade Assignments</a></li>
-        <li><a asp-area="" asp-controller="Home" asp-action="Index">Create a Class</a></li>
+        <li><a asp-area="" asp-controller="Teacher" asp-action="CreateAssignment">Create Assignments</a></li>
+        <li><a asp-area="" asp-controller="Teacher" asp-action="Grade">Grade Assignments</a></li>
+        <li><a asp-area="" asp-controller="Teacher" asp-action="CreateClass">Create a Class</a></li>
     </ul>
 }
 else if (User.IsInRole("Student"))
 {
     <ul class="nav navbar-nav">
-        <li><a asp-area="" asp-controller="Home" asp-action="Index">Check Assignments</a></li>
-        <li><a asp-area="" asp-controller="Home" asp-action="Index">Check Grade</a></li>
-        <li><a asp-area="" asp-controller="Home" asp-action="Index">Classes</a></li>
+        <li><a asp-area="" asp-controller="Student" asp-action="CheckAssignments">Check Assignments</a></li>
+        <li><a asp-area="" asp-controller="Student" asp-action="CheckGrade">Check Grade</a></li>
+        <li><a asp-area="" asp-controller="Student" asp-action="Classes">Classes</a></li>
     </ul>
 }
 else

@@ -42,3 +42,11 @@
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_LogoHomePartial.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Student/StudentDashboard.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Teacher/TeacherDashboard.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Admin/ChangeRoles.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Admin/CreateUser.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Teacher/CreateAssignment.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Teacher/CreateClass.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Teacher/Grade.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Student/CheckAssignments.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Student/CheckGrade.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Student/Classes.g.cshtml.cs
