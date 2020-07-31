@@ -12,7 +12,7 @@ namespace UniversityApp.Controllers
         private UserContext _context;
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        // private readonly RoleManager<IdentityRole> _roleManager;
         public AdminController(UserContext context,UserManager<User> userManager,SignInManager<User> signInManager)
         {
             _context = context;
@@ -23,12 +23,11 @@ namespace UniversityApp.Controllers
         public IActionResult AdminDashboard(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-            return View();
+            var users = _context.Users;
+            return View(users);
         }
         public IActionResult CreateUser()
         {
-            // User user = _context.User.
-            // var user = _userManager.Users.ToList();
             return View();
         }
         [HttpPost]
@@ -50,6 +49,12 @@ namespace UniversityApp.Controllers
             {
                 return RedirectToAction("CreateUser");
             }
+        }
+        [Route("{Id:guid}")]
+        public async Task<IActionResult> GetUserDetails(string Id)
+        {
+            var user = await _userManager.FindByIdAsync(Id);
+            return View(user);
         }
         public IActionResult ChangeRoles()
         {

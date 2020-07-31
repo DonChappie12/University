@@ -50,3 +50,4 @@
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Student/CheckAssignments.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Student/CheckGrade.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Student/Classes.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/UniversityApp/obj/Debug/netcoreapp2.1/Razor/Views/Admin/GetUserDetails.g.cshtml.cs

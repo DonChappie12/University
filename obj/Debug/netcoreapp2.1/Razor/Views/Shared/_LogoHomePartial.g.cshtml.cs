@@ -74,7 +74,7 @@ using UniversityApp.Models;
             WriteLiteral("    ");
             EndContext();
             BeginContext(34, 104, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "db336ea7cffe462ca1998fe894316b94", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d6aee38d1d4f417fa1577fdb96bf14d4", async() => {
                 BeginContext(121, 13, true);
                 WriteLiteral("UniversityApp");
                 EndContext();
@@ -111,7 +111,7 @@ else if(User.IsInRole("Teacher"))
             WriteLiteral("    ");
             EndContext();
             BeginContext(181, 108, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f307d275372742898bfe2c5537634d56", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f0042f8cf624df08edc4d7405439b99", async() => {
                 BeginContext(272, 13, true);
                 WriteLiteral("UniversityApp");
                 EndContext();
@@ -148,7 +148,7 @@ else if(User.IsInRole("Student"))
             WriteLiteral("    ");
             EndContext();
             BeginContext(332, 108, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ad6205e7f86460eaf907fa83fd411dc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d070c7dacce7418db2516b64f552feea", async() => {
                 BeginContext(423, 13, true);
                 WriteLiteral("UniversityApp");
                 EndContext();
@@ -185,7 +185,7 @@ else
             WriteLiteral("    ");
             EndContext();
             BeginContext(454, 94, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "609265e521b44ac984dd3efd658e3e34", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a93cd8ae42da4ae0b3ea216e7335839d", async() => {
                 BeginContext(531, 13, true);
                 WriteLiteral("UniversityApp");
                 EndContext();
