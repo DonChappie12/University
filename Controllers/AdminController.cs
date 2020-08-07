@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -24,6 +25,7 @@ namespace UniversityApp.Controllers
         {
             ViewData["ReturnUrl"] = returnUrl;
             var users = _context.Users;
+            // ViewBag.info = users;
             return View(users);
         }
         public IActionResult CreateUser()
@@ -59,6 +61,31 @@ namespace UniversityApp.Controllers
         public IActionResult ChangeRoles()
         {
             return View();
+        }
+        [Route("delete/{Id:guid}")]
+        public async Task<IActionResult> DeleteUser(string Id)
+        {
+            // *** Finds user by Id ***
+            var deleteUser = await _userManager.FindByIdAsync(Id);
+            // *** Finds roles associated with user ***
+            var rolesFromUser = await _userManager.GetRolesAsync(deleteUser);
+            if(deleteUser != null)
+            {
+                // *** Checks for roles ***
+                if( rolesFromUser.Count > 0)
+                {
+                    foreach(var role in rolesFromUser)
+                    {
+                        // *** Removes user from any roles ***
+                        var remove  = await _userManager.RemoveFromRoleAsync(deleteUser, role);
+                    }
+                }
+                // *** Finally deletes user ***
+                var result = await _userManager.DeleteAsync(deleteUser);
+                if(result.Succeeded)
+                    return RedirectToAction("AdminDashboard");
+            }
+            return RedirectToAction("AdminDashboard");
         }
     }
 }

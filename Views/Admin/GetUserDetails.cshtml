@@ -1,7 +1,12 @@
 @model User
 
 <div>
-    <h2>Details for User</h2>
-    <h4>@Model.Id</h4>
-    <h4>@Model.UserName</h4>
+    <div>
+        <h2>Details for User</h2>
+        <h4>@Model.Id</h4>
+        <h4>@Model.UserName</h4>
+    </div>
+    <div>
+        <a asp-area="" asp-controller="Admin" asp-action="AdminDashboard">Go Back</a>
+    </div>
 </div>
